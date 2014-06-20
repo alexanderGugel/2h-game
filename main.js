@@ -11,6 +11,7 @@ setTimeout(function () {
 setInterval(function () {
   if (!dead) {
     points++;
+    $('.score').text(points);
   }
 }, 10);
 
