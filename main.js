@@ -1,9 +1,20 @@
 var safe = false;
 var inCab = false;
+var dead = false;
+var moveable = true;
+var points = 0;
+
+setInterval(function () {
+  if (!dead) {
+    points++;
+  }
+}, 10);
 
 var checkConflict = function () {
   if ((player.x + 20) <= (car.x + 80) && player.x >= car.x && !safe && !inCab) {
+    $('.dead').text(points);
     $('.dead').show();
+    dead = true;
   }
 };
 
@@ -24,9 +35,11 @@ var checkCab = function () {
   if ((player.x + 20) <= (cab.x + 80) && player.x >= cab.x) {
     if (!inCab && !safe) {
       inCab = true;
+      moveable = false;
       $('.status').text('You entered a cab (for 3s).');
       $('.player').hide();
       setTimeout(function () {
+        moveable = true;
         player.x = cab.x;
         $('.player').css('margin-left', player.x);
         $('.player').show();
@@ -98,7 +111,7 @@ var cab = {
 
 
 $('body').keydown(function(e) {
-  if (!inCab) {
+  if (moveable) {
     if (e.keyCode == 37) { // left
       player.moveLeft();
     } else if (e.keyCode == 39) { // right
