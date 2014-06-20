@@ -4,6 +4,10 @@ var dead = false;
 var moveable = true;
 var points = 0;
 
+setTimeout(function () {
+  $('.status').text('Go!');
+}, 2000);
+
 setInterval(function () {
   if (!dead) {
     points++;
@@ -12,7 +16,7 @@ setInterval(function () {
 
 var checkConflict = function () {
   if ((player.x + 20) <= (car.x + 80) && player.x >= car.x && !safe && !inCab) {
-    $('.dead').text(points);
+    $('.dead').html(points + '<br>†');
     $('.dead').show();
     dead = true;
   }
@@ -100,7 +104,7 @@ var cab = {
   render: function () {
     this.x = Math.floor(Math.random()*window.innerWidth);
     $('.cab').animate({'margin-left': this.x + 'px'}, {
-      duration: 1000,
+      duration: 3000,
       step: function (x) {
         cab.x = x;
         checkCab();
