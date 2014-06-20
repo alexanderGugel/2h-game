@@ -18,7 +18,7 @@ setInterval(function () {
 var checkConflict = function () {
   if ((player.x + 20) <= (car.x + 80) && player.x >= car.x && !safe && !inCab) {
     $('.dead').html(points + '<br>†');
-    $('.dead').show();
+    $('.dead').slideDown();
     dead = true;
   }
 };
@@ -47,7 +47,7 @@ var checkCab = function () {
         moveable = true;
         player.x = cab.x;
         $('.player').css('margin-left', player.x);
-        $('.player').show();
+        $('.player').slideDown();
         $('.status').text('Your left the cab.');
       }, 3000);
       setTimeout(function () {
