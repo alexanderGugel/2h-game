@@ -4,46 +4,6 @@
     <meta charset="utf-8">
     <title>Game</title>
     <style>
-      body {
-        font: 40px Helvetica, Arial;
-      }
-      html, body { overflow: hidden; }
-      * { padding: 0; margin: 0; }
-      .status, .score {
-        padding: 1em;
-        float: left;
-      }
-      .score {
-        float: right;
-      }
-      .player {
-        background: red;
-        width: 20px;
-        height: 50px;
-        position: absolute;
-        bottom: 0;
-        margin-left: 50%;
-        z-index: 99999;
-        border-radius: 10px;
-        margin-bottom: -5px;
-      }
-      .car, .police, .cab {
-        background: blue;
-        width: 80px;
-        height: 60px;
-        position: absolute;
-        bottom: 0;
-        border-radius: 3px;
-        margin-bottom: -4px;
-      }
-      .cab {
-        background: yellow;
-        margin-left: 800px;
-      }
-      .police {
-        background: green;
-        margin-left: 400px;
-      }
       .dead {
         height: 100%;
         width: 100%;
@@ -62,14 +22,7 @@
     </style>
   </head>
   <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="main.js"></script>
-    <div class="status">Get ready!</div>
-    <div class="score"></div>
-    <div class="player"></div>
-    <div class="car"></div>
-    <div class="police"></div>
-    <div class="cab"></div>
-    <div class="dead"></div>
   </body>
 </html>
